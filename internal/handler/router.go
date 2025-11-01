@@ -1,6 +1,8 @@
 package handler
 
-import "net/http"
+import (
+	"net/http"
+)
 
 func SetupRouter(handler *MetricHandler) http.Handler {
 	mux := http.NewServeMux()
@@ -10,6 +12,15 @@ func SetupRouter(handler *MetricHandler) http.Handler {
 
 	mux.HandleFunc("POST /update/gauge/{metric}/{value}", handler.UpdateGauge)
 	mux.HandleFunc("GET /value/gauge/{metric}", handler.GetGauge)
+
+	// Для всех остальных типов
+	mux.HandleFunc("POST /update/{type}/{metric}/{value}", func(w http.ResponseWriter, r *http.Request) {
+		http.Error(w, "Invalid metric type", http.StatusBadRequest)
+	})
+
+	mux.HandleFunc("GET /value/{type}/{metric}", func(w http.ResponseWriter, r *http.Request) {
+		http.Error(w, "Invalid metric type", http.StatusBadRequest)
+	})
 
 	return ContentTypeMiddleware("text/plain; charset=utf-8")(mux)
 }
