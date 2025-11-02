@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/Gustik/metrics/internal/model"
-	"github.com/Gustik/metrics/internal/service"
+	"github.com/Gustik/metrics/internal/server/service"
 )
 
 type MetricHandler struct {

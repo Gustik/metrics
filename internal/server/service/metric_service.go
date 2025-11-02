@@ -6,7 +6,7 @@ import (
 	"fmt"
 
 	"github.com/Gustik/metrics/internal/model"
-	"github.com/Gustik/metrics/internal/repository"
+	"github.com/Gustik/metrics/internal/server/repository"
 )
 
 var (
