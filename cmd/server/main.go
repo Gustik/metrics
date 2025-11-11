@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/Gustik/metrics/internal/config"
-	"github.com/Gustik/metrics/internal/handler"
-	"github.com/Gustik/metrics/internal/repository"
-	"github.com/Gustik/metrics/internal/service"
+	"github.com/Gustik/metrics/internal/server/handler"
+	"github.com/Gustik/metrics/internal/server/repository"
+	"github.com/Gustik/metrics/internal/server/service"
 )
 
 func main() {
